@@ -15,7 +15,7 @@ const usersRoute = require('./_routes/users-route');
 
 const corsOpts = {
   origin: '*',
-  methods: "GET, PUT"
+  methods: "GET, PUT, POST"
 };
 
 app.use(cors(corsOpts));

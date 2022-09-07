@@ -15,7 +15,7 @@ router.post('/', validateWith(schema), async (req, res) => {
   try {
     const { name, password } = req.body;
     let user = await userService.getUserByUsername(name);
-
+    
     if (!user[0].password)
       return res.status(400).send({ error: 'Invalid username or password.' });
     if (!passwordCheck.check(user[0].password, password))
@@ -28,6 +28,7 @@ router.post('/', validateWith(schema), async (req, res) => {
       },
       'jwtPrivateKey'
     );
+    console.log(user[0]);
     res.status(200).send({code: 200, data: token});
   } catch (error) {
     res
@@ -41,7 +42,7 @@ router.put('/', validateWith(schema), async (req, res) => {
     const { name, password } = req.body;
     const user = {
       name: name,
-      password: password,
+      password: passwordCheck.encrypt(password),
       email: `${name}@admin.com`,
       userType: 'admin',
     }

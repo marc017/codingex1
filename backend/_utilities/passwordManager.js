@@ -2,17 +2,18 @@ const CryptoJS = require('crypto-js');
 const config = require('config');
 
 const check = (userPassword, inputPassword) => {
-  console.log(userPassword, inputPassword);
+  
   const secretKey = CryptoJS.AES.decrypt(
     userPassword.trim(),
     inputPassword.trim()
   ).toString(CryptoJS.enc.Utf8);
-
-  return secretKey === config.sercretkey;
+  console.log(secretKey, process.env.SECRETKEY, userPassword, inputPassword);
+  return secretKey === process.env.SECRETKEY;
 };
 
 const encrypt = (password) => {
-  return CryptoJS.AES.encrypt(config.secretkey, password.trim()).toString();
+  console.log(process.env.SECRETKEY);
+  return CryptoJS.AES.encrypt(process.env.SECRETKEY, password.trim()).toString();
 };
 
 module.exports = {
