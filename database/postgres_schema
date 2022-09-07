@@ -1,0 +1,17 @@
+CREATE DATABASE codingexam
+    WITH 
+    OWNER = postgres
+    ENCODING = 'UTF8'
+    LC_COLLATE = 'English_United States.936'
+    LC_CTYPE = 'English_United States.936'
+    TABLESPACE = pg_default
+    CONNECTION LIMIT = -1;
+
+CREATE TABLE IF NOT EXISTS public.users
+(
+    id serial NOT NULL,
+    name text NOT NULL COLLATE pg_catalog."default",
+    email text NOT NULL COLLATE pg_catalog."default",
+    type text NOT NULL COLLATE pg_catalog."default",
+    password text COLLATE pg_catalog."default"
+)

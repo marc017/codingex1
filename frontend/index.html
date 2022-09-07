@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Exam</title>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="panel">
+      <div class="container">
+        <div id="success-container" class="hidden">
+          Successfully registered!
+        </div>
+        <div id="error-container" class="hidden">
+          Failed to register please try again.
+        </div>
+        <form id="userform" action="#" onsubmit="submitForm(); return false">
+          <div class="row">
+            <div class="form-input">
+              <label for="username">User Name:</label>
+              <input id="username" class="form-control" type="text" required/>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-input">
+              <label for="email">Email:</label>
+              <input id="email" class="form-control" type="email" required/>
+            </div>
+          </div>
+          <div class="row">
+            <div>
+              <button type="submit">Submit</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
